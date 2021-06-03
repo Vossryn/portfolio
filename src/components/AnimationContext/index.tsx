@@ -6,10 +6,12 @@ interface AnimationProps {
 
 interface State {
   isShowing: boolean;
+  showHeaderIcon: boolean;
 }
 
 export const Actions = {
   ToggleShowing: "TOGGLESHOWING",
+  ShowHeaderIcon: "SHOWHEADERICON",
 } as const;
 
 export type Actions = typeof Actions[keyof typeof Actions];
@@ -19,7 +21,7 @@ type Action = {
   payload: boolean;
 };
 
-const initialState: State = { isShowing: true };
+const initialState: State = { isShowing: true, showHeaderIcon: false };
 function animationReducer(state: State, action: Action): State {
   const { type, payload } = action;
   switch (type) {
@@ -27,6 +29,11 @@ function animationReducer(state: State, action: Action): State {
       return {
         ...state,
         isShowing: payload,
+      };
+    case "SHOWHEADERICON":
+      return {
+        ...state,
+        showHeaderIcon: payload,
       };
     default:
       return state;

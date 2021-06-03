@@ -11,24 +11,22 @@ export default function Home() {
   const { isShowing } = state;
 
   return (
-    <React.Fragment>
-      <div className={`flex-1 relative overflow-hidden`}>
-        <Logo />
+    <div className="flex-1 relative overflow-hidden">
+      <Logo />
 
-        <Transition
-          className={`${styles.graphContainer} absolute top-0 left-0 right-0 bottom-0`}
-          appear={true}
-          show={isShowing}
-          enter="transform transition duration-1000 ease-in-out"
-          enterFrom="translate-y-full"
-          enterTo=""
-          leave="transform transition duration-1000 ease-in-out"
-          leaveFrom=""
-          leaveTo="translate-y-full"
-        >
-          <div className={styles.graph}></div>
-        </Transition>
-      </div>
-    </React.Fragment>
+      <Transition
+        className="absolute w-full h-full mx-auto"
+        appear={true}
+        show={isShowing}
+        enter="transform duration-1000 ease-in-out"
+        enterFrom="min-w-0 max-w-0"
+        enterTo="min-w-full max-w-full"
+        leave="transform duration-1000 ease-in-out"
+        leaveFrom="min-w-full max-w-full"
+        leaveTo="min-w-0 max-w-0"
+      >
+        <div className={styles.graph}></div>
+      </Transition>
+    </div>
   );
 }

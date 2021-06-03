@@ -13,7 +13,10 @@ export default function Layout({ children }: LayoutProps) {
     <div className="flex flex-col min-h-screen justify-items-center align-middle bg-gray-900 text-white overflow-hidden">
       <Head>
         <title>Philip B Flynt Jr</title>
-        <meta name="description" content="Philip Flynt, full stack developer online portfolio." />
+        <meta
+          name="description"
+          content="Philip Flynt, full stack developer online portfolio."
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
