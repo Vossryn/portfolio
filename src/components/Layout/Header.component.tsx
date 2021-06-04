@@ -50,8 +50,6 @@ export default function Header() {
     dispatch({ type: Actions.ToggleShowing, payload: false });
     if (item.href !== "/") {
       dispatch({ type: Actions.ShowHeaderIcon, payload: true });
-    } else {
-      dispatch({ type: Actions.ShowHeaderIcon, payload: false });
     }
     setMenuItems(
       MenuItems.map((di) => {
@@ -63,13 +61,16 @@ export default function Header() {
       router.push(item.href);
       setTimeout(() => {
         dispatch({ type: Actions.ToggleShowing, payload: true });
+        if (item.href === "/") {
+          dispatch({ type: Actions.ShowHeaderIcon, payload: false });
+        }
       }, 100);
     }, 900);
   };
 
   return (
     <header
-      className={`bg-gray-900 h-19 mb-1 pt-2 pr-4 font-bold z-10 flex flex-row justify-between ${
+      className={`bg-gray-900 h-[4.5rem] mb-1 pt-2 pr-4 font-bold z-10 flex flex-row justify-between ${
         !showHeaderIcon ? "pb-7" : ""
       }`}
     >
