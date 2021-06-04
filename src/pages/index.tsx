@@ -15,7 +15,7 @@ export default function Home() {
       <Logo />
 
       <Transition
-        className="absolute w-full h-full mx-auto"
+        className={`absolute mx-auto${isShowing ? " w-full h-full" : ""}`}
         appear={true}
         show={isShowing}
         enter="transform duration-1000 ease-in-out"
