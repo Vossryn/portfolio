@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Logo from "../components/Logo";
 import { Transition } from "@headlessui/react";
 
@@ -9,13 +9,20 @@ import styles from "../styles/Home.module.scss";
 export default function Home() {
   const state = useContext(AnimationStateContext);
   const { isShowing } = state;
+  let isLoaded = false;
+
+  useEffect(() => {
+    setTimeout(function () {
+      isLoaded = true;
+    }, 200);
+  }, []);
 
   return (
     <div className="flex-1 relative overflow-hidden">
       <Logo />
 
       <Transition
-        className={`absolute mx-auto${isShowing ? " w-full h-full" : ""}`}
+        className={`absolute mx-auto inset-0`}
         appear={true}
         show={isShowing}
         enter="transform duration-1000 ease-in-out"
