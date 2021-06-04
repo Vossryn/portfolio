@@ -22,9 +22,9 @@ export default function Home() {
       <Logo />
 
       <Transition
-        className={`absolute mx-auto inset-0`}
         appear={true}
         show={isShowing}
+        as={React.Fragment}
         enter="transform duration-1000 ease-in-out"
         enterFrom="min-w-0 max-w-0"
         enterTo="min-w-full max-w-full"
@@ -32,7 +32,9 @@ export default function Home() {
         leaveFrom="min-w-full max-w-full"
         leaveTo="min-w-0 max-w-0"
       >
-        <div className={styles.graph}></div>
+        <div className={`absolute mx-auto inset-0`}>
+          <div className={styles.graph}></div>
+        </div>
       </Transition>
     </div>
   );
