@@ -3,8 +3,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { Transition } from "@headlessui/react";
 
-import { AnimationDispatchContext, Actions } from "../AnimationContext";
-import { AnimationStateContext } from "../AnimationContext";
+import { AnimationDispatchContext, Actions, AnimationStateContext } from "../AnimationContext";
 
 import styles from "./Layout.module.scss";
 
@@ -70,36 +69,28 @@ export default function Header() {
 
   return (
     <header
-      className={`bg-gray-900 h-[4.5rem] mb-1 pt-2 pr-4 font-bold z-10 flex flex-row justify-between ${
-        !showHeaderIcon ? "pb-7" : ""
-      }`}
+      className={`px-4 z-10 pt-3 pb-5 font-bold flex flex-row justify-end relative w-9/12 mx-auto ${styles.bgHeader}`}
     >
-      <div className="ml-4">
-        <Transition
-          show={showHeaderIcon}
-          enter="transform transition duration-1000 ease-in-out"
-          enterFrom="scale-x-0 scale-y-0"
-          enterTo="scale-x-100 scale-y-100"
-          leave="transform transition duration-1000 ease-in-out"
-          leaveFrom="scale-x-100 scale-y-100"
-          leaveTo="scale-x-0 scale-y-0"
+      <div className="z-20">
+        <button
+          className={`${styles.meButton} sm:hidden`}
+          onClick={() => dispatch({ type: Actions.ToggleShowing, payload: true })}
         >
-          <Image src="/images/v-logo.svg" alt="Vossryn Logo" width={58} height={58} />
-        </Transition>
-      </div>
-      <div>
-        <button onClick={() => dispatch({ type: Actions.ToggleShowing, payload: true })}>
           Toggle On
         </button>
-        <button onClick={() => dispatch({ type: Actions.ToggleShowing, payload: false })}>
+        <button
+          style={{ marginRight: "1em" }}
+          className={`${styles.meButton} sm:hidden`}
+          onClick={() => dispatch({ type: Actions.ToggleShowing, payload: false })}
+        >
           Toggle Off
         </button>
         {MenuItems.map((item, index) => (
           <a
             href={item.href}
+            className={`${styles.meButton} ${item.active ? styles.active : ""}`}
             key={index}
             onClick={(e) => handleClick(e, item)}
-            className={`${styles.neonButton} ${item.active ? styles.active : ""}`}
           >
             {item.text}
           </a>
