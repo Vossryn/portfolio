@@ -1,9 +1,11 @@
 import React, { useState, useContext } from "react";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import { Transition } from "@headlessui/react";
+import { Menu } from "@headlessui/react";
 
 import { AnimationDispatchContext, Actions, AnimationStateContext } from "../AnimationContext";
+
+import Logo from "../Logo";
 
 import styles from "./Layout.module.scss";
 
@@ -69,33 +71,25 @@ export default function Header() {
 
   return (
     <header
-      className={`px-4 z-10 pt-3 pb-5 font-bold flex flex-row justify-end relative w-9/12 mx-auto ${styles.bgHeader}`}
+      className={`px-2 z-10 pt-3 pb-5 font-bold flex flex-row justify-between relative w-full md:w-9/12 mx-auto rounded-br-2xl rounded-bl-2xl border-blue-300 border-t-0 border-r-2 border-b-2 border-l-2 ${styles.bgHeader}`}
     >
-      <div className="z-20">
-        <button
-          className={`${styles.meButton} sm:hidden`}
-          onClick={() => dispatch({ type: Actions.ToggleShowing, payload: true })}
-        >
-          Toggle On
-        </button>
-        <button
-          style={{ marginRight: "1em" }}
-          className={`${styles.meButton} sm:hidden`}
-          onClick={() => dispatch({ type: Actions.ToggleShowing, payload: false })}
-        >
-          Toggle Off
-        </button>
+      <Logo
+        className={`w-10 h-10 hidden sm:block fill-current text-blue-200 z-20 ${
+          showHeaderIcon ? "" : ""
+        }`}
+      />
+      <nav className="z-20 flex-1 flex">
         {MenuItems.map((item, index) => (
           <a
             href={item.href}
-            className={`${styles.meButton} ${item.active ? styles.active : ""}`}
+            className={`inline-block ${styles.meButton} ${item.active ? styles.active : ""}`}
             key={index}
             onClick={(e) => handleClick(e, item)}
           >
             {item.text}
           </a>
         ))}
-      </div>
+      </nav>
     </header>
   );
 }

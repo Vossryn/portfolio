@@ -16,15 +16,15 @@ export default function Layout({ children }: LayoutProps) {
       className={`flex flex-col min-h-screen justify-items-center align-middle bg-gray-900 text-white overflow-hidden ${styles.starsContainer}`}
     >
       <Head>
-        <title>Philip B Flynt Jr</title>
+        <title>Philip Flynt</title>
         <meta name="description" content="Philip Flynt, full stack developer online portfolio." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
       <main className="flex-1 flex flex-row">
-        <div className={styles.stars}></div>
-        <div className={styles.stars2}></div>
-        <div className={styles.stars3}></div>
+        <div className={`flex-none ${styles.stars}`}></div>
+        <div className={`flex-none ${styles.stars2}`}></div>
+        <div className={`flex-none ${styles.stars3}`}></div>
         {children}
       </main>
       <Footer />
