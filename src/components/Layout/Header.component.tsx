@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useRouter } from "next/router";
-import { Transition } from "@headlessui/react";
-import { Menu } from "@headlessui/react";
+import Link from "next/link";
 
 import { AnimationDispatchContext, Actions, AnimationStateContext } from "../AnimationContext";
 
@@ -23,17 +22,17 @@ const menuItems: MenuItem[] = [
     active: true,
   },
   {
-    href: "about",
+    href: "/about",
     text: "About",
     active: false,
   },
   {
-    href: "#",
+    href: "/#",
     text: "Projects",
     active: false,
   },
   {
-    href: "#",
+    href: "/#",
     text: "Contact",
     active: false,
   },
@@ -71,18 +70,18 @@ export default function Header() {
 
   return (
     <header
-      className={`px-4 z-10 pt-3 pb-5 font-bold flex flex-row justify-center sm:justify-end relative w-full sm:w-9/12 mx-auto rounded-br-2xl rounded-bl-2xl border-blue-300 border-t-0 border-b-2 sm:border-r-2 sm:border-l-2 ${styles.bgBlurTop}`}
+      className={`px-4 z-10 pt-3 pb-5 font-bold flex flex-row justify-center sm:justify-end rounded-br-2xl rounded-bl-2xl border-blue-300 border-t-0 border-b-2 sm:border-r-2 sm:border-l-2 ${styles.bgBlurTop}`}
     >
       <nav className="z-20">
         {MenuItems.map((item, index) => (
-          <a
-            href={item.href}
-            className={`inline-block ${styles.meButton} ${item.active ? styles.active : ""}`}
-            key={index}
-            onClick={(e) => handleClick(e, item)}
-          >
-            {item.text}
-          </a>
+          <Link href={item.href} passHref key={index}>
+            <a
+              className={`inline-block ${styles.meButton} ${item.active ? styles.active : ""}`}
+              onClick={(e) => handleClick(e, item)}
+            >
+              {item.text}
+            </a>
+          </Link>
         ))}
       </nav>
     </header>

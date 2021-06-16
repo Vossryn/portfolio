@@ -92,6 +92,11 @@ $shadows-medium: multiple-box-shadow(200);
 $shadows-big: multiple-box-shadow(100);
 
 .starsContainer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 
   .stars {
