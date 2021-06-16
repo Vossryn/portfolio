@@ -1,14 +1,16 @@
 interface LogoProps {
   className?: string;
+  height?: number | string;
+  width?: number | string;
 }
 
-export default function Logo({ className }: LogoProps) {
+export default function Logo({ className, height = 800, width = 800 }: LogoProps) {
   return (
     <svg
       className={className}
       xmlns="http://www.w3.org/2000/svg"
-      width="800"
-      height="800"
+      width={width}
+      height={height}
       viewBox="0 0 800 800"
     >
       <path

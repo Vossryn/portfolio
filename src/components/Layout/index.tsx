@@ -21,12 +21,10 @@ export default function Layout({ children }: LayoutProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className="flex-1 flex flex-row">
-        <div className={`flex-none ${styles.stars}`}></div>
-        <div className={`flex-none ${styles.stars2}`}></div>
-        <div className={`flex-none ${styles.stars3}`}></div>
-        {children}
-      </main>
+      <div className={`z-0 flex-none ${styles.stars}`}></div>
+      <div className={`z-0 flex-none ${styles.stars2}`}></div>
+      <div className={`z-0 flex-none ${styles.stars3}`}></div>
+      <main className="flex-1">{children}</main>
       <Footer />
     </div>
   );

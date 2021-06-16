@@ -6,12 +6,18 @@ import styles from "../styles/Home.module.scss";
 
 export default function Home() {
   return (
-    <div className="flex-1 flex flex-col">
-      <div className={`${styles.mainTitle}`}>
-        <div className={`${styles.name} font-extrabold w-full text-7xl pb-4`}>Philip Flynt</div>
-        <div className="text-base text-white w-full">Full Stack Developer</div>
+    <div className="flex flex-col items-center justify-center">
+      <div
+        className={`text-transparent bg-clip-text bg-gradient-to-t from-gray-800 to-white text-center py-5`}
+      >
+        <div className={`${styles.name} font-extrabold text-6xl`}>Philip Flynt</div>
       </div>
-      <Logo className="h-32 w-32" />
+      <div
+        className={`text-transparent bg-clip-text bg-gradient-to-t from-gray-800 to-white text-center pb-4`}
+      >
+        <div className="font-extrabold text-xl">Full Stack Developer</div>
+      </div>
+      <Logo className="h-80 w-80 z-20 fill-current text-white text-opacity-50" />
     </div>
   );
 }

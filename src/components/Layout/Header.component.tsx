@@ -71,14 +71,9 @@ export default function Header() {
 
   return (
     <header
-      className={`px-2 z-10 pt-3 pb-5 font-bold flex flex-row justify-between relative w-full md:w-9/12 mx-auto rounded-br-2xl rounded-bl-2xl border-blue-300 border-t-0 border-r-2 border-b-2 border-l-2 ${styles.bgHeader}`}
+      className={`px-4 z-10 pt-3 pb-5 font-bold flex flex-row justify-center sm:justify-end relative w-full sm:w-9/12 mx-auto rounded-br-2xl rounded-bl-2xl border-blue-300 border-t-0 border-b-2 sm:border-r-2 sm:border-l-2 ${styles.bgBlurTop}`}
     >
-      <Logo
-        className={`w-10 h-10 hidden sm:block fill-current text-blue-200 z-20 ${
-          showHeaderIcon ? "" : ""
-        }`}
-      />
-      <nav className="z-20 flex-1 flex">
+      <nav className="z-20">
         {MenuItems.map((item, index) => (
           <a
             href={item.href}

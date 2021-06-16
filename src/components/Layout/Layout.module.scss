@@ -1,4 +1,4 @@
-.bgHeader {
+.bgBlurTop {
   backdrop-filter: blur(2px);
   box-shadow: inset 0px -6px 7px 4px rgba(168, 223, 255, 0.15);
 
@@ -17,8 +17,26 @@
   }
 }
 
+.bgBlurBottom {
+  backdrop-filter: blur(2px);
+  box-shadow: inset 0px 6px 7px 4px rgba(168, 223, 255, 0.15);
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.15;
+    border-top-right-radius: 1rem /* 6px */;
+    border-top-left-radius: 1rem /* 6px */;
+    background-color: #b7e3ff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%230064ff' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  }
+}
+
 .meButton {
-  margin: auto;
   border: 2px solid rgba(150, 150, 255, 1);
   border-radius: 0.5em;
   text-decoration: none;
@@ -41,11 +59,11 @@
   }
 
   &:not(:nth-of-type(1)) {
-    margin-left: 0.25em;
+    margin-left: 0.5em;
   }
 
   &:not(:nth-last-of-type(1)) {
-    margin-right: 0.25em;
+    margin-right: 0.5em;
   }
 
   &.active {
