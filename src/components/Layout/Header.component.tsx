@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
 import { useRouter } from "next/router";
-import Image from "next/image";
-import { Transition } from "@headlessui/react";
+import Link from "next/link";
 
 import { AnimationDispatchContext, Actions, AnimationStateContext } from "../AnimationContext";
+
+import Logo from "../Logo";
 
 import styles from "./Layout.module.scss";
 
@@ -21,17 +22,17 @@ const menuItems: MenuItem[] = [
     active: true,
   },
   {
-    href: "about",
+    href: "/about",
     text: "About",
     active: false,
   },
   {
-    href: "#",
+    href: "/#",
     text: "Projects",
     active: false,
   },
   {
-    href: "#",
+    href: "/#",
     text: "Contact",
     active: false,
   },
@@ -69,33 +70,20 @@ export default function Header() {
 
   return (
     <header
-      className={`px-4 z-10 pt-3 pb-5 font-bold flex flex-row justify-end relative w-9/12 mx-auto ${styles.bgHeader}`}
+      className={`px-4 z-10 pt-3 pb-5 font-bold flex flex-row justify-center sm:justify-end rounded-br-2xl rounded-bl-2xl border-blue-300 border-t-0 border-b-2 sm:border-r-2 sm:border-l-2 ${styles.bgBlurTop}`}
     >
-      <div className="z-20">
-        <button
-          className={`${styles.meButton} sm:hidden`}
-          onClick={() => dispatch({ type: Actions.ToggleShowing, payload: true })}
-        >
-          Toggle On
-        </button>
-        <button
-          style={{ marginRight: "1em" }}
-          className={`${styles.meButton} sm:hidden`}
-          onClick={() => dispatch({ type: Actions.ToggleShowing, payload: false })}
-        >
-          Toggle Off
-        </button>
+      <nav className="z-20">
         {MenuItems.map((item, index) => (
-          <a
-            href={item.href}
-            className={`${styles.meButton} ${item.active ? styles.active : ""}`}
-            key={index}
-            onClick={(e) => handleClick(e, item)}
-          >
-            {item.text}
-          </a>
+          <Link href={item.href} passHref key={index}>
+            <a
+              className={`inline-block ${styles.meButton} ${item.active ? styles.active : ""}`}
+              onClick={(e) => handleClick(e, item)}
+            >
+              {item.text}
+            </a>
+          </Link>
         ))}
-      </div>
+      </nav>
     </header>
   );
 }

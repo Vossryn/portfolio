@@ -1,3 +1,12 @@
+import styles from "./Layout.module.scss";
+
 export default function Footer() {
-  return <div className="bg-gray-900 text-white overflow-hidden">Linkedin | Github</div>;
+  return (
+    <div
+      className={`p-3 z-10 font-bold flex flex-row justify-between rounded-tr-2xl rounded-tl-2xl border-blue-300 border-t-2 border-b-0 sm:border-r-2 sm:border-l-2 ${styles.bgBlurBottom}`}
+    >
+      <div>Linkedin | Github</div>
+      <div>Philip Flynt</div>
+    </div>
+  );
 }

@@ -1,31 +1,24 @@
-import { useContext } from "react";
-import { Transition } from "@headlessui/react";
-
-import { AnimationStateContext } from "../AnimationContext";
-
-import styles from "./Logo.module.scss";
-
 interface LogoProps {
   className?: string;
+  height?: number | string;
+  width?: number | string;
 }
 
-export default function Logo({ className }: LogoProps) {
-  const state = useContext(AnimationStateContext);
-  const { isShowing } = state;
+export default function Logo({ className, height = 800, width = 800 }: LogoProps) {
   return (
-    <Transition
-      className={`mx-auto md:mt-32 ${styles.LogoWrapper} ${className}`}
-      appear={true}
-      show={isShowing}
-      enter="transform transition duration-1000 ease-in-out"
-      enterFrom="scale-x-0 scale-y-0"
-      enterTo="scale-x-100 scale-y-100"
-      leave="transform transition duration-1000 ease-in-out"
-      leaveFrom="scale-x-100 scale-y-100"
-      leaveTo="scale-x-0 scale-y-0"
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      width={width}
+      height={height}
+      viewBox="0 0 800 800"
     >
-      <h1 data-text="Philip B Flynt Jr">Philip B Flynt Jr</h1>
-      <h2 data-text="Full Stack Developer">Full Stack Developer</h2>
-    </Transition>
+      <path
+        id="Subtraction_2"
+        data-name="Subtraction 2"
+        d="M400,913,0,113H292.5L492,510,691.5,113H800L400,913h0Zm93.5-464h0l-168-336h336l-168,336Z"
+        transform="translate(0 -113)"
+      />
+    </svg>
   );
 }
