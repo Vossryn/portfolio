@@ -22,7 +22,7 @@ export default function Layout({ children }: LayoutProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className="flex-1 flex flex-col z-10">{children}</main>
+      <main className="flex-1 flex flex-col z-10 p-4">{children}</main>
       <Footer />
       <div className={styles.starsContainer}>
         <div className={`z-0 absolute ${styles.stars}`}></div>
