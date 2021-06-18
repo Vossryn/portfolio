@@ -18,10 +18,11 @@ export default function Layout({ children }: LayoutProps) {
       <Head>
         <title>Philip Flynt</title>
         <meta name="description" content="Philip Flynt, full stack developer online portfolio." />
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className="flex-1 z-10">{children}</main>
+      <main className="flex-1 flex flex-col z-10">{children}</main>
       <Footer />
       <div className={styles.starsContainer}>
         <div className={`z-0 absolute ${styles.stars}`}></div>
