@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
@@ -19,7 +19,7 @@ const menuItems: MenuItem[] = [
   {
     href: "/",
     text: "Home",
-    active: true,
+    active: false,
   },
   {
     href: "/about",
@@ -64,9 +64,18 @@ export default function Header() {
         if (item.href === "/") {
           dispatch({ type: Actions.ShowHeaderIcon, payload: false });
         }
-      }, 100);
-    }, 900);
+      }, 0); //100
+    }, 0); //900
   };
+
+  useEffect(function () {
+    setMenuItems(
+      MenuItems.map((di) => {
+        di.active = di.href === router.pathname;
+        return di;
+      })
+    );
+  }, []);
 
   return (
     <header

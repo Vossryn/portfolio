@@ -13,7 +13,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <div
-      className={`flex flex-col min-h-screen justify-items-center align-middle bg-gray-900 text-white  relative w-full sm:w-9/12 mx-auto`}
+      className={`flex flex-col min-h-screen justify-items-center align-middle bg-gray-900 text-white relative w-full sm:w-9/12 mx-auto selection:text-blue-800 selection:bg-yellow-500`}
     >
       <Head>
         <title>Philip Flynt</title>
