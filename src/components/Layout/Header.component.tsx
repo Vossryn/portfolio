@@ -27,12 +27,12 @@ const menuItems: MenuItem[] = [
     active: false,
   },
   {
-    href: "/#",
+    href: "/projects",
     text: "Projects",
     active: false,
   },
   {
-    href: "/#",
+    href: "/contact",
     text: "Contact",
     active: false,
   },
