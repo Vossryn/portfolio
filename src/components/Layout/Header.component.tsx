@@ -13,6 +13,7 @@ interface MenuItem {
   text: string;
   icon?: React.Component;
   active: boolean;
+  title: string;
 }
 
 const menuItems: MenuItem[] = [
@@ -20,21 +21,25 @@ const menuItems: MenuItem[] = [
     href: "/",
     text: "Home",
     active: false,
+    title: "Home",
   },
   {
     href: "/about",
     text: "About",
     active: false,
+    title: "About",
   },
   {
     href: "/projects",
     text: "Projects",
     active: false,
+    title: "Projects",
   },
   {
     href: "/contact",
     text: "Contact",
     active: false,
+    title: "Contact",
   },
 ];
 
@@ -87,6 +92,7 @@ export default function Header() {
             <a
               className={`inline-block ${styles.meButton} ${item.active ? styles.active : ""}`}
               onClick={(e) => handleClick(e, item)}
+              title={item.title}
             >
               {item.text}
             </a>

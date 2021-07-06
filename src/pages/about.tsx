@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import Container from "../components/Container";
 import LocationSvg from "../components/LocationSvg";
@@ -18,7 +17,7 @@ export default function About() {
         <div
           className={`${styles["clip-path-start"]} w-full leading-relaxed text-4xl font-bold text-blue-300 mb-4 relative ml-3 pl-1 before:bg-blue-300 before:absolute before:top-0 before:bottom-0 before:-left-3 before:w-4 before:rounded-l-sm`}
         >
-          About Me
+          About
         </div>
 
         <div className="flex flex-col w-full lg:w-1/3">
@@ -46,25 +45,23 @@ export default function About() {
                 target="_blank"
                 title="Go to Reusme"
               >
-                Resume <ExternalLinkSvg className="h-4 w-4 inline-block" />
+                Resume
+                <ExternalLinkSvg className="h-4 w-4 inline-block" />
               </a>
             </div>
           </div>
         </div>
         <div className="lg:w-2/3 lg:pl-8">
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore ipsa beatae sequi
-            dolorem quos repellat? Beatae ab rem voluptatibus, quas mollitia voluptatum
-            reprehenderit distinctio ipsam provident tenetur dolores ex amet laborum ad? Beatae,
-            nam. Delectus eligendi magnam quos in perspiciatis, corporis debitis nemo voluptatem
-            nihil obcaecati error, sint, veniam alias.
+          <p className="text-lg pb-4">
+            I’m a highly motivated programmer, always looking to learn more and striving to improve
+            myself.
           </p>
           <p>
-            Necessitatibus voluptate, tenetur ea alias omnis facilis quisquam recusandae saepe
-            placeat! Mollitia, in asperiores similique at facilis ullam omnis! Quos, temporibus, ad
-            repellendus libero totam ipsum quisquam vitae eligendi cupiditate perspiciatis unde
-            reiciendis magnam veniam! Repellendus facilis est, odit a, provident accusantium nihil
-            omnis illo eveniet vitae asperiores officia voluptates?
+            I earned my associates in web development as well as my bachelors in network security by
+            taking night classes while working a full time job. During this time I developed a love
+            of JavaScript which has allowed me to explore all things coding from back end setups to
+            front end design and creation. When I’m not spending my time with my loving wife and
+            amazing step son I’m usually looking up new things to add to my knowledge base.
           </p>
           <p>
             Autem ab officiis doloremque impedit laborum obcaecati nemo? Dolorem accusantium, animi

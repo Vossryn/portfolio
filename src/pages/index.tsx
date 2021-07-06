@@ -17,7 +17,9 @@ export default function Home() {
         />
         <div className="z-10 text-transparent bg-clip-text bg-gradient-to-t from-yellow-500 to-blue-500 pb-5 flex flex-col items-center justify-center">
           <div className="font-extrabold text-6xl lg:text-7xl">Philip Flynt</div>
-          <div className="font-extrabold text-3xl py-4">Full Stack Developer</div>
+          <div className="font-extrabold text-2xl py-4 max-w-sm text-center">
+            A full stack developer with out of this world creativity
+          </div>
           <div>
             <Link href="/contact" passHref>
               <a className={`inline-block ${styles.contactButton}`}>Contact Me</a>
