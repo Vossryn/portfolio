@@ -52,11 +52,11 @@ export default function About() {
           </div>
         </div>
         <div className="lg:w-2/3 lg:pl-8">
-          <p className="text-lg pb-4">
+          <p className="text-xl pb-4">
             I’m a highly motivated programmer, always looking to learn more and striving to improve
             myself.
           </p>
-          <p>
+          <p className="pb-4">
             I earned my associates in web development as well as my bachelors in network security by
             taking night classes while working a full time job. During this time I developed a love
             of JavaScript which has allowed me to explore all things coding from back end setups to
