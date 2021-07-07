@@ -12,15 +12,14 @@ import familyPhoto from "../../public/images/family-photo.jpg";
 
 export default function About() {
   return (
-    <div className="flex flex-col">
+    <div className="">
       <Container className="flex flex-col lg:flex-row flex-wrap">
-        <div
-          className={`${styles["clip-path-start"]} w-full leading-relaxed text-4xl font-bold text-blue-300 mb-4 relative ml-3 pl-1 before:bg-blue-300 before:absolute before:top-0 before:bottom-0 before:-left-3 before:w-4 before:rounded-l-sm`}
-        >
-          About
-        </div>
-
         <div className="flex flex-col w-full lg:w-1/3">
+          <div
+            className={`${styles["clip-path-start"]} leading-relaxed text-4xl font-bold text-blue-300 relative mb-4 ml-3 pl-1 before:bg-blue-300 before:absolute before:top-0 before:bottom-0 before:-left-3 before:w-4 before:rounded-l-sm`}
+          >
+            About
+          </div>
           <div className="rounded-2xl border-blue-300 border-2 p-3 flex">
             <Image
               src={familyPhoto}
@@ -52,7 +51,7 @@ export default function About() {
           </div>
         </div>
         <div className="lg:w-2/3 lg:pl-8">
-          <p className="text-xl pb-4">
+          <p className="text-2xl pb-4">
             I’m a highly motivated programmer, always looking to learn more and striving to improve
             myself.
           </p>
