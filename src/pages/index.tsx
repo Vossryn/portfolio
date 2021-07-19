@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import LogoSvg from "../components/LogoSvg";
+import LogoSvg from "../components/Svg/LogoSvg";
 import Container from "../components/Container";
 
 import styles from "../styles/home.module.scss";

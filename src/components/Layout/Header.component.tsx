@@ -24,10 +24,10 @@ const menuItems: MenuItem[] = [
     title: "Home",
   },
   {
-    href: "/about",
-    text: "About",
+    href: "/profile",
+    text: "Profile",
     active: false,
-    title: "About",
+    title: "Profile",
   },
   {
     href: "/projects",
