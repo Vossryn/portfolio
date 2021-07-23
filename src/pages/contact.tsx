@@ -1,4 +1,5 @@
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
+import ReCAPTCHA from "react-google-recaptcha";
 
 import Container from "../components/Container";
 import TextInput from "./../components/Forms/TextInput/index";
@@ -18,8 +19,13 @@ export default function contact() {
     handleSubmit,
     formState: { errors },
   } = useForm<IFormValues>();
+
   const onSubmit: SubmitHandler<IFormValues> = (data) => {
     console.log(data);
+  };
+
+  const onCaptchaChange = (value: string | null) => {
+    console.log("Captcha value:", value);
   };
 
   return (
@@ -61,10 +67,16 @@ export default function contact() {
 
             <TextArea label="Message" className="w-full h-1/2" required />
 
-            <div className="w-full text-right">
-              <button className={styles.submitButton} type="submit">
-                Send
-              </button>
+            <div className="mt-4 w-full flex flex-col lg:flex-row lg:justify-between">
+              <ReCAPTCHA
+                sitekey={`${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+                onChange={onCaptchaChange}
+              />
+              <div>
+                <button className={`flex-none ${styles.submitButton}`} type="submit">
+                  Send
+                </button>
+              </div>
             </div>
           </form>
         </FormProvider>
