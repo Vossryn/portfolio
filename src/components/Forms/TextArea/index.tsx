@@ -13,12 +13,7 @@ interface TextInputProps {
   required?: boolean;
 }
 
-export default function TextInput({
-  label,
-  type = "text",
-  required = false,
-  className,
-}: TextInputProps) {
+export default function TextArea({ label, required = false, className }: TextInputProps) {
   const {
     register,
     formState: { errors },
@@ -26,19 +21,20 @@ export default function TextInput({
 
   return (
     <div className={`${className} relative`}>
-      <input
+      <textarea
         className={`peer 
           text-blue-900 
           bg-blue-100 
           focus:bg-white 
-          active:bg-white 
+          active:bg-white
+          resize-y
           p-2 
           w-full
+          h-full
           rounded-md 
           focus:outline-none 
           active:outline-none 
           placeholder-transparent`}
-        type={type}
         placeholder={label}
         {...register(label, { required })}
       />

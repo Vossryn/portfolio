@@ -1,9 +1,10 @@
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 
 import Container from "../components/Container";
 import TextInput from "./../components/Forms/TextInput/index";
+import TextArea from "./../components/Forms/TextArea/index";
 
-import styles from "../styles/about.module.scss";
+import styles from "../styles/contact.module.scss";
 
 type IFormValues = {
   "Email Address": string;
@@ -12,7 +13,11 @@ type IFormValues = {
 };
 
 export default function contact() {
-  const { register, handleSubmit } = useForm<IFormValues>();
+  const methods = useForm();
+  const {
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFormValues>();
   const onSubmit: SubmitHandler<IFormValues> = (data) => {
     alert(JSON.stringify(data));
     console.log(data);
@@ -46,19 +51,24 @@ export default function contact() {
       </Container>
 
       <Container className="flex-1">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          {/* register your input into the hook by invoking the "register" function */}
-          <TextInput label="Email Address" className="text-black" register={register} required />
-          <TextInput label="Subject" className="text-black" register={register} />
-          <TextInput label="Message" className="text-black" register={register} />
+        <FormProvider {...methods}>
+          <form
+            onSubmit={methods.handleSubmit(onSubmit)}
+            className="flex flex-wrap gap-4 h-full pt-4"
+          >
+            <TextInput label="Email Address" type="email" className="w-1/3" required />
 
-          {/* include validation with required or other standard HTML validation rules */}
-          {/* <input {...register("exampleRequired", { required: true })} /> */}
-          {/* errors will return when field validation fails  */}
-          {/* {errors.exampleRequired && <span>This field is required</span>} */}
+            <TextInput label="Subject" className="flex-1" required />
 
-          <input className="text-black" type="submit" value="Send Request" />
-        </form>
+            <TextArea label="Message" className="w-full h-1/2" required />
+
+            <div className="w-full text-right">
+              <button className={styles.submitButton} type="submit">
+                Send Request
+              </button>
+            </div>
+          </form>
+        </FormProvider>
       </Container>
     </div>
   );
