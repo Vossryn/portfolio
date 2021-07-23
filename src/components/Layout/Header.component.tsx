@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { AnimationDispatchContext, Actions, AnimationStateContext } from "../AnimationContext";
 
-import Logo from "../LogoSvg";
+import Logo from "../Svg/LogoSvg";
 
 import styles from "./Layout.module.scss";
 
