@@ -56,9 +56,9 @@ export default function contact() {
             onSubmit={methods.handleSubmit(onSubmit)}
             className="flex flex-wrap gap-4 h-full pt-4"
           >
-            <TextInput label="Email Address" type="email" className="w-1/3" required />
+            <TextInput label="Email Address" type="email" className="w-full lg:w-1/3" required />
 
-            <TextInput label="Subject" className="flex-1" required />
+            <TextInput label="Subject" className="w-full lg:flex-1" required />
 
             <TextArea label="Message" className="w-full h-1/2" required />
 

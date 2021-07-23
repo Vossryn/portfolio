@@ -84,7 +84,19 @@ export default function Header() {
 
   return (
     <header
-      className={`px-4 z-10 pt-3 pb-5 flex flex-row justify-center sm:justify-end rounded-br-2xl rounded-bl-2xl border-blue-300 border-t-0 border-b-2 sm:border-r-2 sm:border-l-2 ${styles.bgBlurTop}`}
+      className={`
+        px-4 z-10 
+        pt-3 pb-5 
+        flex flex-row 
+        justify-center 
+        sm:justify-end 
+        rounded-br-2xl 
+        rounded-bl-2xl 
+        border-blue-300 
+        border-t-0 border-b-2 
+        sm:border-r-2 
+        sm:border-l-2 
+        ${styles.bgBlurTop}`}
     >
       <nav className="z-20">
         {MenuItems.map((item, index) => (
