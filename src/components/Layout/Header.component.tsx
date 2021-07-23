@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
 import { AnimationDispatchContext, Actions, AnimationStateContext } from "../AnimationContext";
 
-import Logo from "../Logo";
+import Logo from "../Svg/LogoSvg";
 
 import styles from "./Layout.module.scss";
 
@@ -13,28 +13,33 @@ interface MenuItem {
   text: string;
   icon?: React.Component;
   active: boolean;
+  title: string;
 }
 
 const menuItems: MenuItem[] = [
   {
     href: "/",
     text: "Home",
-    active: true,
-  },
-  {
-    href: "/about",
-    text: "About",
     active: false,
+    title: "Home",
   },
   {
-    href: "/#",
+    href: "/profile",
+    text: "Profile",
+    active: false,
+    title: "Profile",
+  },
+  {
+    href: "/projects",
     text: "Projects",
     active: false,
+    title: "Projects",
   },
   {
-    href: "/#",
+    href: "/contact",
     text: "Contact",
     active: false,
+    title: "Contact",
   },
 ];
 
@@ -64,13 +69,22 @@ export default function Header() {
         if (item.href === "/") {
           dispatch({ type: Actions.ShowHeaderIcon, payload: false });
         }
-      }, 100);
-    }, 900);
+      }, 0); //100
+    }, 0); //900
   };
+
+  useEffect(function () {
+    setMenuItems(
+      MenuItems.map((di) => {
+        di.active = di.href === router.pathname;
+        return di;
+      })
+    );
+  }, []);
 
   return (
     <header
-      className={`px-4 z-10 pt-3 pb-5 font-bold flex flex-row justify-center sm:justify-end rounded-br-2xl rounded-bl-2xl border-blue-300 border-t-0 border-b-2 sm:border-r-2 sm:border-l-2 ${styles.bgBlurTop}`}
+      className={`px-4 z-10 pt-3 pb-5 flex flex-row justify-center sm:justify-end rounded-br-2xl rounded-bl-2xl border-blue-300 border-t-0 border-b-2 sm:border-r-2 sm:border-l-2 ${styles.bgBlurTop}`}
     >
       <nav className="z-20">
         {MenuItems.map((item, index) => (
@@ -78,6 +92,7 @@ export default function Header() {
             <a
               className={`inline-block ${styles.meButton} ${item.active ? styles.active : ""}`}
               onClick={(e) => handleClick(e, item)}
+              title={item.title}
             >
               {item.text}
             </a>

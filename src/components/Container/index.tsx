@@ -10,7 +10,7 @@ interface ContainerProps {
 export default function Container({ children, className }: ContainerProps) {
   return (
     <div
-      className={`p-6 flex flex-row justify-center rounded-2xl border-blue-300 border-2 ${styles.bgBlurTop} ${className}`}
+      className={`p-6 rounded-2xl border-blue-300 border-2 ${styles.bgBlurContainer} ${className}`}
     >
       {children}
     </div>

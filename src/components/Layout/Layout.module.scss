@@ -1,6 +1,6 @@
 .bgBlurTop {
   backdrop-filter: blur(2px);
-  box-shadow: inset 0px -6px 7px 4px rgba(168, 223, 255, 0.15);
+  box-shadow: inset 0px -6px 7px 4px rgba(168, 223, 255, 0.3);
 
   &:before {
     content: "";
@@ -12,14 +12,14 @@
     opacity: 0.15;
     border-bottom-right-radius: 1rem /* 6px */;
     border-bottom-left-radius: 1rem /* 6px */;
-    background-color: #b7e3ff;
+    background-color: rgba(183, 227, 255, 0.3);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%230064ff' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
   }
 }
 
 .bgBlurBottom {
   backdrop-filter: blur(2px);
-  box-shadow: inset 0px 6px 7px 4px rgba(168, 223, 255, 0.15);
+  box-shadow: inset 0px 6px 7px 4px rgba(168, 223, 255, 0.3);
 
   &:before {
     content: "";
@@ -31,20 +31,23 @@
     opacity: 0.15;
     border-top-right-radius: 1rem /* 6px */;
     border-top-left-radius: 1rem /* 6px */;
-    background-color: #b7e3ff;
+    background-color: rgba(183, 227, 255, 0.3);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%230064ff' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
   }
 }
 
 .meButton {
-  border: 2px solid rgba(150, 150, 255, 1);
+  border: 2px solid rgba(147, 197, 253, 1);
   border-radius: 0.5em;
   text-decoration: none;
-  padding: 0.5em 0.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0.25em 0.25em;
   background-color: rgba(0, 0, 255, 0.1);
   color: white;
-  box-shadow: 0px 0px 5px 2px rgba(150, 150, 255, 0.3),
-    inset 0px 0px 5px 5px rgba(100, 100, 255, 0.3);
+  box-shadow: 0px 0px 5px 2px rgba(147, 197, 253, 0.3),
+    inset 0px 0px 5px 5px rgba(168, 223, 255, 0.3);
+  transition: all ease-in-out 200ms;
 
   &:hover,
   &:focus {
@@ -59,16 +62,16 @@
   }
 
   &:not(:nth-of-type(1)) {
-    margin-left: 0.5em;
+    margin-left: 0.25em;
   }
 
   &:not(:nth-last-of-type(1)) {
-    margin-right: 0.5em;
+    margin-right: 0.25em;
   }
 
   &.active {
-    background-color: rgba(150, 150, 255, 1);
-    box-shadow: 0px 0px 5px 2px rgba(150, 150, 255, 0.3);
+    background-color: rgba(147, 197, 253, 1);
+    box-shadow: 0px 0px 5px 2px rgba(147, 197, 253, 0.3);
     color: black;
 
     &:hover,
