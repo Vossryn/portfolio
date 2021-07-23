@@ -19,7 +19,6 @@ export default function contact() {
     formState: { errors },
   } = useForm<IFormValues>();
   const onSubmit: SubmitHandler<IFormValues> = (data) => {
-    alert(JSON.stringify(data));
     console.log(data);
   };
 
@@ -32,7 +31,7 @@ export default function contact() {
           Contact
         </div>
       </Container>
-      <Container className="w-1/3">
+      <Container className="w-full lg:w-1/3">
         <div>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus iure placeat ex
           perspiciatis sequi deserunt iusto, dolorem magni laudantium maxime aliquam. Beatae maiores
@@ -54,7 +53,7 @@ export default function contact() {
         <FormProvider {...methods}>
           <form
             onSubmit={methods.handleSubmit(onSubmit)}
-            className="flex flex-wrap gap-4 h-full pt-4"
+            className="flex flex-col lg:flex-row flex-wrap gap-4 h-full pt-4"
           >
             <TextInput label="Email Address" type="email" className="w-full lg:w-1/3" required />
 
@@ -64,7 +63,7 @@ export default function contact() {
 
             <div className="w-full text-right">
               <button className={styles.submitButton} type="submit">
-                Send Request
+                Send
               </button>
             </div>
           </form>
