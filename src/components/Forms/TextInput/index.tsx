@@ -8,6 +8,7 @@ type IFormValues = {
 
 interface TextInputProps {
   label: Path<IFormValues>;
+  placeholder?: string;
   className: string;
   type?: string;
   required?: boolean;
@@ -15,6 +16,7 @@ interface TextInputProps {
 
 export default function TextInput({
   label,
+  placeholder,
   type = "text",
   required = false,
   className,
@@ -25,10 +27,10 @@ export default function TextInput({
   } = useFormContext();
 
   return (
-    <div className={`${className} relative`}>
+    <div className={`${className} relative h-16`}>
       <input
         className={`peer 
-          text-blue-900 
+          text-black
           bg-blue-100 
           focus:bg-white 
           active:bg-white 
@@ -36,10 +38,11 @@ export default function TextInput({
           w-full
           rounded-md 
           focus:outline-none 
+          focus:placeholder-gray-400
           active:outline-none 
           placeholder-transparent`}
         type={type}
-        placeholder={label}
+        placeholder={placeholder}
         {...register(label, { required })}
       />
       <label
@@ -50,16 +53,18 @@ export default function TextInput({
           ease-in-out
           -top-6 
           left-2 
+          text-sm 
           text-blue-50 
           peer-focus:text-sm
-          peer-placeholder-shown:top-2 
+          peer-placeholder-shown:top-2
+          peer-placeholder-shown:text-base 
           peer-focus:-top-6
           peer-placeholder-shown:text-black
-          peer-focus:text-blue-50`}
+          peer-focus:text-white`}
       >
         {label}
       </label>
-      {errors[label] && <div className="text-sm text-yellow-500">{label} is Required</div>}
+      {errors[label] && <div className="text-sm text-yellow-500 pl-2">{label} is Required</div>}
     </div>
   );
 }
