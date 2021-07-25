@@ -15,13 +15,20 @@ type IFormValues = {
 
 export default function contact() {
   const methods = useForm();
-  const {
-    handleSubmit,
-    formState: { errors },
-  } = useForm<IFormValues>();
 
   const onSubmit: SubmitHandler<IFormValues> = (data) => {
-    console.log(data);
+    fetch("api/contact", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   const onCaptchaChange = (value: string | null) => {
@@ -48,11 +55,6 @@ export default function contact() {
           porro aperiam quam praesentium facilis in explicabo beatae fugit rerum adipisci assumenda
           veniam eaque?
         </div>
-        <div>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime consequuntur, cumque
-          porro aperiam quam praesentium facilis in explicabo beatae fugit rerum adipisci assumenda
-          veniam eaque?
-        </div>
       </Container>
 
       <Container className="flex-1">
@@ -61,19 +63,35 @@ export default function contact() {
             onSubmit={methods.handleSubmit(onSubmit)}
             className="flex flex-col lg:flex-row flex-wrap gap-4 h-full pt-4"
           >
-            <TextInput label="Email Address" type="email" className="w-full lg:w-1/3" required />
+            <TextInput
+              label="Email Address"
+              placeholder="janedoe@email.com"
+              type="email"
+              className="w-full lg:w-1/3"
+              required
+            />
 
-            <TextInput label="Subject" className="w-full lg:flex-1" required />
+            <TextInput
+              label="Subject"
+              placeholder="Impressive subject line"
+              className="w-full lg:flex-1"
+              required
+            />
 
-            <TextArea label="Message" className="w-full h-1/2" required />
+            <TextArea
+              label="Message"
+              placeholder="Super impressive email message"
+              className="w-full"
+              required
+            />
 
             <div className="mt-4 w-full flex flex-col lg:flex-row lg:justify-between">
               <ReCAPTCHA
                 sitekey={`${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
                 onChange={onCaptchaChange}
               />
-              <div>
-                <button className={`flex-none ${styles.submitButton}`} type="submit">
+              <div className="mt-4 lg:mt-0">
+                <button className={`${styles.submitButton}`} type="submit">
                   Send
                 </button>
               </div>
