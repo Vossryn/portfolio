@@ -60,7 +60,8 @@ export default function TextArea({
           peer-focus:text-white
           peer-placeholder-shown:top-2
           peer-placeholder-shown:text-base 
-          peer-placeholder-shown:text-black`}
+          peer-placeholder-shown:text-black
+          pointer-events-none`}
       >
         {label}
       </label>

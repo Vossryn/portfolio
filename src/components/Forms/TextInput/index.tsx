@@ -60,7 +60,8 @@ export default function TextInput({
           peer-placeholder-shown:text-base 
           peer-focus:-top-6
           peer-placeholder-shown:text-black
-          peer-focus:text-white`}
+          peer-focus:text-white
+          pointer-events-none`}
       >
         {label}
       </label>

@@ -43,14 +43,15 @@ export default function contact() {
       })
         .then((response) => response.json())
         .then((data) => {
+          console.log({ data });
           setResponseMsg({
-            body: data,
+            body: data.message,
             hasError: false,
           });
         })
-        .catch((error) => {
+        .catch((err) => {
           setResponseMsg({
-            body: error,
+            body: err.error,
             hasError: true,
           });
         });
