@@ -8,7 +8,8 @@ import TextArea from "./../components/Forms/TextArea/index";
 import styles from "../styles/contact.module.scss";
 
 type IFormValues = {
-  "Email Address": string;
+  Email: string;
+  Name: string;
   Subject: string;
   Message: string;
 };
@@ -31,12 +32,52 @@ export default function contact() {
       });
   };
 
-  const onCaptchaChange = (value: string | null) => {
-    console.log("Captcha value:", value);
+    if (recaptchaValue !== null) {
+      fetch("api/contact", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...data, recaptchaValue }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setResponseMsg({
+            body: data.message,
+            hasError: false,
+          });
+        })
+        .catch((err) => {
+          setResponseMsg({
+            body: err.error,
+            hasError: true,
+          });
+        });
+    }
+  };
+
+  const clearMessage = () => {
+    setResponseMsg({ body: null, hasError: false });
   };
 
   return (
     <div className="flex flex-col lg:flex-row flex-wrap gap-10">
+      {responseMsg.body && !responseMsg.hasError ? (
+        <div
+          className="bg-green-700 border-green-500 text-white border rounded-lg absolute top-4 right-4 z-50 p-4"
+          onClick={clearMessage}
+        >
+          {responseMsg.body}
+        </div>
+      ) : null}
+      {responseMsg.body && responseMsg.hasError ? (
+        <div
+          className="bg-red-700 border-red-500 text-white border rounded-lg absolute top-4 right-4 z-50 p-4"
+          onClick={clearMessage}
+        >
+          {responseMsg.body}
+        </div>
+      ) : null}
       <Container className="w-full">
         <div
           className={`${styles["clip-path-start"]} leading-relaxed text-4xl font-bold text-blue-300 relative ml-3 pl-1 uppercase before:bg-blue-300 before:absolute before:top-0 before:bottom-0 before:-left-3 before:w-4 before:rounded-l-sm`}
