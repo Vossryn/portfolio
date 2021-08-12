@@ -1,4 +1,3 @@
-import { useRef, useState } from "react";
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -15,24 +14,23 @@ type IFormValues = {
   Message: string;
 };
 
-interface ResponseMsg {
-  body: string | null;
-  hasError: boolean;
-}
-
 export default function contact() {
   const methods = useForm();
-  const recaptchaRef = useRef<any>(null);
-  const [responseMsg, setResponseMsg] = useState<ResponseMsg>({
-    body: null,
-    hasError: false,
-  });
 
   const onSubmit: SubmitHandler<IFormValues> = (data) => {
-    let recaptchaValue: null | string = null;
-    if (recaptchaRef && recaptchaRef.current) {
-      recaptchaValue = recaptchaRef.current?.getValue();
-    }
+    fetch("api/contact", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
 
     if (recaptchaValue !== null) {
       fetch("api/contact", {
@@ -130,9 +128,8 @@ export default function contact() {
 
             <div className="mt-4 w-full flex flex-col lg:flex-row lg:justify-between">
               <ReCAPTCHA
-                ref={recaptchaRef}
-                theme="dark"
                 sitekey={`${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+                onChange={onCaptchaChange}
               />
               <div className="mt-4 lg:mt-0">
                 <button className={`${styles.submitButton}`} type="submit">
