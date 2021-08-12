@@ -9,7 +9,8 @@ import TextArea from "./../components/Forms/TextArea/index";
 import styles from "../styles/contact.module.scss";
 
 type IFormValues = {
-  "Email Address": string;
+  Email: string;
+  Name: string;
   Subject: string;
   Message: string;
 };
@@ -43,7 +44,6 @@ export default function contact() {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log({ data });
           setResponseMsg({
             body: data.message,
             hasError: false,
@@ -58,15 +58,25 @@ export default function contact() {
     }
   };
 
+  const clearMessage = () => {
+    setResponseMsg({ body: null, hasError: false });
+  };
+
   return (
     <div className="flex flex-col lg:flex-row flex-wrap gap-10">
       {responseMsg.body && !responseMsg.hasError ? (
-        <div className="bg-green-800 border-green-500 text-white rounded-lg blur-sm absolute top-4 right-4">
+        <div
+          className="bg-green-700 border-green-500 text-white border rounded-lg absolute top-4 right-4 z-50 p-4"
+          onClick={clearMessage}
+        >
           {responseMsg.body}
         </div>
       ) : null}
       {responseMsg.body && responseMsg.hasError ? (
-        <div className="bg-red-800 border-red-500 text-white rounded-lg blur-sm absolute top-4 right-4">
+        <div
+          className="bg-red-700 border-red-500 text-white border rounded-lg absolute top-4 right-4 z-50 p-4"
+          onClick={clearMessage}
+        >
           {responseMsg.body}
         </div>
       ) : null}
