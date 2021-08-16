@@ -1,9 +1,11 @@
 import { useFormContext, Path } from "react-hook-form";
 
 type IFormValues = {
-  "Email Address": string;
-  Subject: string;
+  Email: string;
+  "First Name": string;
+  "Last Name": string;
   Message: string;
+  Subject: string;
 };
 
 interface TextInputProps {
@@ -63,7 +65,7 @@ export default function TextInput({
           peer-focus:text-white
           pointer-events-none`}
       >
-        {label}
+        {label} {required ? " *" : null}
       </label>
       {errors[label] && <div className="text-sm text-yellow-500 pl-2">{label} is Required</div>}
     </div>

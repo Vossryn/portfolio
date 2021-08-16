@@ -63,7 +63,7 @@ export default function TextArea({
           peer-placeholder-shown:text-black
           pointer-events-none`}
       >
-        {label}
+        {label} {required ? " *" : null}
       </label>
       {errors[label] && (
         <div className="text-sm text-yellow-500 pl-2 -mt-1">{label} is Required</div>

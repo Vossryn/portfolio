@@ -24,8 +24,13 @@ export default async (req: NextApiRequest, res: NextApiResponse<ResponseData>) =
         const msg = {
           to: "vossryn@gmail.com",
           from: "portfolio@vossryn.com", // Use the email address or domain you verified above
-          subject: `${req.body.Email} - ${req.body.Name} - ${req.body.Subject}`,
-          text: req.body.Message,
+          subject: ``,
+          html: `${req.body["First Name"]} ${req.body["First Name"]}
+          
+          ${req.body.Email}
+          
+          ${req.body.Message}
+          `,
         };
 
         await sgMail.send(msg);

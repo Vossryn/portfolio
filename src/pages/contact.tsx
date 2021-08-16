@@ -10,7 +10,8 @@ import styles from "../styles/contact.module.scss";
 
 type IFormValues = {
   Email: string;
-  Name: string;
+  "First Name": string;
+  "Last Name": string;
   Subject: string;
   Message: string;
 };
@@ -21,7 +22,7 @@ interface ResponseMsg {
 }
 
 export default function contact() {
-  const methods = useForm();
+  const formMethods = useForm();
   const recaptchaRef = useRef<any>(null);
   const [responseMsg, setResponseMsg] = useState<ResponseMsg>({
     body: null,
@@ -48,6 +49,7 @@ export default function contact() {
             body: data.message,
             hasError: false,
           });
+          formMethods.reset();
         })
         .catch((err) => {
           setResponseMsg({
@@ -87,43 +89,39 @@ export default function contact() {
           Contact
         </div>
       </Container>
-      <Container className="w-full lg:w-1/3">
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus iure placeat ex
-          perspiciatis sequi deserunt iusto, dolorem magni laudantium maxime aliquam. Beatae maiores
-          dolores laudantium?
-        </div>
-        <div>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime consequuntur, cumque
-          porro aperiam quam praesentium facilis in explicabo beatae fugit rerum adipisci assumenda
-          veniam eaque?
-        </div>
-      </Container>
-
       <Container className="flex-1">
-        <FormProvider {...methods}>
+        <FormProvider {...formMethods}>
           <form
-            onSubmit={methods.handleSubmit(onSubmit)}
+            onSubmit={formMethods.handleSubmit(onSubmit)}
             className="flex flex-col lg:flex-row flex-wrap gap-4 h-full pt-4"
           >
             <TextInput
-              label="Email Address"
+              label="First Name"
+              placeholder="Jane"
+              className="w-full lg:flex-1"
+              required
+            />
+
+            <TextInput label="Last Name" placeholder="Doe" className="w-full lg:flex-1" required />
+
+            <TextInput
+              label="Email"
               placeholder="janedoe@email.com"
               type="email"
-              className="w-full lg:w-1/3"
+              className="w-full lg:flex-1"
               required
             />
 
             <TextInput
               label="Subject"
-              placeholder="Impressive subject line"
-              className="w-full lg:flex-1"
+              placeholder="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+              className="w-full"
               required
             />
 
             <TextArea
               label="Message"
-              placeholder="Super impressive email message"
+              placeholder="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
               className="w-full"
               required
             />
