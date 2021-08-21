@@ -29,7 +29,7 @@ export default function TextArea({
     <div className={`${className} relative h-[7.25rem]`}>
       <textarea
         className={`peer 
-          text-blue-900 
+          text-black
           bg-blue-100 
           focus:bg-white 
           active:bg-white
@@ -63,7 +63,7 @@ export default function TextArea({
           peer-placeholder-shown:text-black
           pointer-events-none`}
       >
-        {label}
+        {label} {required ? " *" : null}
       </label>
       {errors[label] && (
         <div className="text-sm text-yellow-500 pl-2 -mt-1">{label} is Required</div>
