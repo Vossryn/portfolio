@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Head from "next/head";
 
 import Container from "../components/Container";
 import SkillsCard from "../components/SkillsCard";
@@ -36,6 +37,9 @@ const skills = [
 export default function About() {
   return (
     <div className="flex flex-col lg:flex-row flex-wrap gap-10">
+      <Head>
+        <title>Philip Portfolio - Profile</title>
+      </Head>
       <Container className="w-full">
         <div
           className={`${styles["clip-path-start"]} leading-relaxed text-4xl font-bold text-blue-300 relative ml-3 pl-1 uppercase before:bg-blue-300 before:absolute before:top-0 before:bottom-0 before:-left-3 before:w-4 before:rounded-l-sm`}

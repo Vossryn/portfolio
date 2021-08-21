@@ -29,7 +29,7 @@ export default function TextArea({
     <div className={`${className} relative h-[7.25rem]`}>
       <textarea
         className={`peer 
-          text-blue-900 
+          text-black
           bg-blue-100 
           focus:bg-white 
           active:bg-white
