@@ -71,7 +71,7 @@ export default function contact() {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row flex-wrap gap-10">
+    <div className="flex flex-col gap-x-4 gap-y-4">
       <Head>
         <title>Philip Portfolio - Contact</title>
       </Head>
@@ -82,11 +82,11 @@ export default function contact() {
           Contact
         </div>
       </Container>
-      <Container className="flex-1">
+      <Container className="w-full">
         <FormProvider {...formMethods}>
           <form
             onSubmit={formMethods.handleSubmit(onSubmit)}
-            className="flex flex-col lg:flex-row flex-wrap gap-4 h-full pt-4"
+            className="flex flex-col lg:flex-row flex-wrap gap-x-4 h-full pt-4"
           >
             <TextInput
               label="First Name"
@@ -119,7 +119,7 @@ export default function contact() {
               required
             />
 
-            <div className="mt-4 w-full flex flex-col lg:flex-row gap-2 lg:justify-between">
+            <div className="mt-4 w-full flex flex-col gap-2 lg:flex-row lg:justify-between">
               <ReCAPTCHA
                 ref={recaptchaRef}
                 theme="dark"
