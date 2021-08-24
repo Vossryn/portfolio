@@ -5,7 +5,7 @@ export default function Footer() {
     <div
       className={`p-3 z-10 font-bold flex flex-row justify-between rounded-tr-2xl rounded-tl-2xl border-blue-300 border-t-2 border-b-0 sm:border-r-2 sm:border-l-2 ${styles.bgBlurBottom}`}
     >
-      <div>Site still under construction</div>
+      <div></div>
       <div>Philip Flynt</div>
     </div>
   );
