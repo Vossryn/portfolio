@@ -91,31 +91,36 @@ export default function contact() {
             <TextInput
               label="First Name"
               placeholder="Jane"
-              className="w-full lg:flex-1"
+              className="w-full mb-4 lg:flex-1"
               required
             />
 
-            <TextInput label="Last Name" placeholder="Doe" className="w-full lg:flex-1" required />
+            <TextInput
+              label="Last Name"
+              placeholder="Doe"
+              className="w-full mb-4 lg:flex-1"
+              required
+            />
 
             <TextInput
               label="Email"
               placeholder="janedoe@email.com"
               type="email"
-              className="w-full lg:flex-1"
+              className="w-full mb-4 lg:flex-1"
               required
             />
 
             <TextInput
               label="Subject"
               placeholder="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
-              className="w-full"
+              className="w-full mb-4"
               required
             />
 
             <TextArea
               label="Message"
               placeholder="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
-              className="w-full"
+              className="w-full mb-4"
               required
             />
 
